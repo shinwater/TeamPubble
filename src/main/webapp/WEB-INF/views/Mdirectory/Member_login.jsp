@@ -3,12 +3,7 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script>
 
-    var IMP = window.IMP; // 생략해도 괜찮습니다.
-    IMP.init("imp59762723"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
-
-</script>
 
 
 <div>

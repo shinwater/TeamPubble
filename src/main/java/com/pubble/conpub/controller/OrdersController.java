@@ -41,7 +41,7 @@ public class OrdersController {
 
     //장바구니에서 선택한 상품 주문하기 클릭시
     @RequestMapping("/orders/orders")
-    public String orders(List<SelectedOption> selectedOptionList){
+    public String orders(){
         return null;
     }
 

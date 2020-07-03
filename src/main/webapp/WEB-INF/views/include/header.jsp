@@ -12,7 +12,7 @@
     <meta name="description" content="안녕하세요. 당신을 위한 콘펍입니다">
     <meta name="author" content="Pubble">
 
-	<%--<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>--%>
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
