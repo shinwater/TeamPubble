@@ -459,6 +459,8 @@
 
                             <div class="row">
                                 <div>
+                                    <input type="hidden" value="${sessionScope.member.id}" name="member_no">
+                                    <input type="hidden" value="${no}" name="no">
 
                                     <input type="submit" value="주문하기"
                                            onclick="javascript: form.action='/orders/order';"/>

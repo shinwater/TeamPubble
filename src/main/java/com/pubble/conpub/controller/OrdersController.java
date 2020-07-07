@@ -11,13 +11,16 @@ import org.apache.jasper.tagplugins.jstl.core.If;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class OrdersController {
@@ -41,7 +44,14 @@ public class OrdersController {
 
     //장바구니에서 선택한 상품 주문하기 클릭시
     @RequestMapping("/orders/orders")
-    public String orders(){
+    @ResponseBody
+    public String orders(@RequestBody String[] check){
+        for(String data : check){
+
+            System.out.println(" = " + data);
+
+        }
+
         return null;
     }
 
@@ -67,7 +77,7 @@ public class OrdersController {
 
         out.println("<script>");
         out.println("var cart=confirm('장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?')");
-        out.println("if (cart==true) { location.href='order/cartMain?member_no="+member_no+"'}");
+        out.println("if (cart==true) { location.href='/order/cartMain?member_no="+member_no+"'}");
         out.println("</script>");
 
 
