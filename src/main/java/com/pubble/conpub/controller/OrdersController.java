@@ -7,6 +7,7 @@ import com.pubble.conpub.repository.SelectedOptionRepository;
 import com.pubble.conpub.service.ItemService;
 import com.pubble.conpub.service.MemberService;
 import com.pubble.conpub.service.OrderService;
+import com.pubble.conpub.service.SelectedOptionService;
 import org.apache.jasper.tagplugins.jstl.core.If;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,9 @@ public class OrdersController {
     @Autowired
     private MemberService memberService;
 
+    @Autowired
+    private SelectedOptionService selectedOptionService;
+
     //상품페이지에서 바로 '주문하기' 클릭시
     @RequestMapping("/orders/order")
     public String orders(SelectedOption selectedOption, Model model){
@@ -42,15 +46,17 @@ public class OrdersController {
         return "orders/ordersForm1";
     }
 
-    //장바구니에서 선택한 상품 주문하기 클릭시
-    @RequestMapping("/orders/orders")
+    //장바구니에서 선택한 상품 삭제하기 클릭시
+    @RequestMapping("/orders/delete")
     @ResponseBody
     public String orders(@RequestBody String[] check){
+
         for(String data : check){
-
             System.out.println(" = " + data);
-
+            //selectedOption테이블에서 selected_no가 일치하는 튜플 삭제.
         }
+
+        selectedOptionService.deleteCart(check);
 
         return null;
     }

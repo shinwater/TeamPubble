@@ -121,7 +121,7 @@
 
         $.ajax({
             method:"post",
-            url:"/orders/orders",
+            url:"/orders/delete",
             contentType:"application/json; charset=UTF-8",
             data: JSON.stringify(check),
             async: false,
@@ -211,6 +211,5 @@
     </table>
 </form>
 </div>
-
 
 <%@include file="../include/footer.jsp" %>
