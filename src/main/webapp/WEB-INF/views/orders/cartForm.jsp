@@ -49,17 +49,11 @@
 
 
         $("input:checkbox").on('click', function(){
-
-
             if ( $(this).prop('checked') ) {
-
                 var addr_item_price = "#item_price"+this.id.substring(8);
 
-
                 total_price += parseInt($(addr_item_price).text());
-
                 document.getElementById("orderCash").innerHTML=total_price;
-
 
             } else {
                 total_price -= parseInt($("#item_price"+this.id.substring(8)).text());
@@ -85,15 +79,9 @@
 
                     var addr_item_price = "#item_price"+this.id.substring(8);
 
-
-
                     total_price += parseInt($(addr_item_price).text());
-
                     document.getElementById("orderCash").innerHTML=total_price;
                 })
-
-
-
 
                 //클릭이 안되있으면
             }else{
@@ -103,17 +91,14 @@
                 total_price = 0;
                 document.getElementById("orderCash").innerHTML=total_price;
             }
-
-
-
-
         })
     })
 
 
-    function delete_cart() {
+/*    function delete_cart() {
 
         var check = new Array();
+        check.push(멤버넘버);
 
         $("input[name=chk]:checked").each(function() {
             check.push($(this).val());
@@ -127,12 +112,11 @@
             async: false,
             success: function (data) {
 
-
+                //data에는 로그인한 회원의 갱신 장바구니 정보가 담겨있음.
+                alert(data);
             }
         })
-
-
-    }
+    }*/
 
 </script>
 
@@ -143,7 +127,8 @@
         장바구니
     </h3>
 
-<form action="">
+<form method="post">
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -203,8 +188,9 @@
         </tr>
         <tr>
             <td colspan="7">
-                <input type="button" onclick="delete_cart()" value="선택한 상품 삭제">
-                <input type="submit" value="선택한 상품 주문">
+                <input type="hidden" value="${sessionScope.member.id}" name="no">
+                <input type="submit" value="선택한 상품 삭제" onclick="javascript: form.action='/orders/delete';">
+                <input type="submit" value="선택한 상품 주문" onclick="javascript: form.action='/orders/orders';">
             </td>
         </tr>
         </tbody>

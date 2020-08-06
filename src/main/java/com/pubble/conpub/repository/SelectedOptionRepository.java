@@ -18,13 +18,9 @@ public class SelectedOptionRepository {
     }
 
     public void delete(String[] check){
-
-        System.out.println("여기는 SelectedOptionRepository");
         for(String data : check) {
 
             em.createQuery("delete from SelectedOption s where s.id=: data").setParameter("data",Long.parseLong(data)).executeUpdate();
-            System.out.println("삭제 성공!");
-
         }
 
     }

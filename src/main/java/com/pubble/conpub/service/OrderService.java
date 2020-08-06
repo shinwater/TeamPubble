@@ -23,6 +23,8 @@ public class OrderService {
         orderRepository.save(selectedOption);
     }
 
+
+
     @Transactional//특정회원의 장바구니 조회
     public List<SelectedOption> searchCart(Member member){
         return orderRepository.cart(member);

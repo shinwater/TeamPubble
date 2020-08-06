@@ -13,7 +13,6 @@ public class SelectedOptionService {
 
     @Transactional
     public void deleteCart(String[] check){
-        System.out.println("SelectedOptionService!!");
         selectedOptionRepository.delete(check);
     }
 }
